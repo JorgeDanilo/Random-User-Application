@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface UserApi {
 
-    @GET
+    @GET("?results=6")
     fun getAll(): Deferred<List<UserResponse>>
 }

@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val API_URL = ""
+const val API_URL = "https://randomuser.me/api/"
 
 const val CONNECTION_TIMEOUT = 60000L
 
