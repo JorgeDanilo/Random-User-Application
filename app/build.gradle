@@ -93,10 +93,13 @@ dependencies {
     /*Play services*/
     implementation 'com.google.android.gms:play-services-maps:8.4.0'
 
+    implementation("com.facebook.fresco:fresco:2.0.0")
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:2.2.2"
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.0'
+
 
 }

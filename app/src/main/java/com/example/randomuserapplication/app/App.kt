@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.randomuserapplication.app.config.remoteModule
 import com.example.randomuserapplication.app.config.repositoryModule
 import com.example.randomuserapplication.app.config.uiModule
+import com.facebook.drawee.backends.pipeline.Fresco
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,5 +22,7 @@ open class App : Application() {
             androidLogger(org.koin.core.logger.Level.DEBUG)
             modules(appModules)
         }
+
+        Fresco.initialize(this)
     }
 }

@@ -7,7 +7,7 @@ import retrofit2.http.Headers
 
 interface UserApi {
 
-    @GET("??exc=registered,login,id,nat,cell&results=6")
+    @GET("??exc=registered,login,id,nat,cell&results=20")
     @Headers("content-type: application/json")
     fun getAll(): Deferred<UserResponse>
 }

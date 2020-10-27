@@ -6,14 +6,20 @@ import android.renderscript.ScriptGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.randomuserapplication.R
-import com.example.randomuserapplication.databinding.ActivityMainBinding
+import com.example.randomuserapplication.databinding.ActivityMainBinding as Binding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private var binding: ActivityMainBinding? = null
+//    private var binding: ActivityMainBinding? = null
     private val viewModel by viewModel<MainUsersViewModel>()
+
+    private val binding by lazy {
+        DataBindingUtil.setContentView<Binding>(this, R.layout.activity_main)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         observerUsers()
         observerError()
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -30,23 +37,22 @@ class MainActivity : AppCompatActivity() {
     private fun configureView() {
         binding?.viewModel = viewModel
         binding?.lifecycleOwner = this
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 
     private fun observerUsers() {
         viewModel.users.observe(this,
-        Observer {data ->
-            data.results.forEach { user ->
-                Toast.makeText(this, "Users: $user", Toast.LENGTH_SHORT).show()
+            Observer { data ->
+                binding?.recyclerView?.adapter = ListUsersAdapter(data.results, this)
+                binding?.recyclerView?.setItemViewCacheSize(20)
             }
-        })
+        )
     }
 
     private fun observerError() {
         viewModel.error.observe(this,
-        Observer {error ->
-            Toast.makeText(this, "Users: ${error.message}", Toast.LENGTH_SHORT).show()
+            Observer { error ->
+                Toast.makeText(this, "Users: ${error.message}", Toast.LENGTH_SHORT).show()
 
-        })
+            })
     }
 }

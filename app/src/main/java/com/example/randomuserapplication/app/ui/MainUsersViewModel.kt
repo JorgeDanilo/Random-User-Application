@@ -38,7 +38,6 @@ class MainUsersViewModel(
                 _users.value = repository.getAll()
                 _loading.value = false
             } catch (t: Throwable) {
-//                _users.value = emptyList()
                 _error.value = t
             } finally {
                 _loading.value = false
@@ -46,4 +45,8 @@ class MainUsersViewModel(
         }
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 }

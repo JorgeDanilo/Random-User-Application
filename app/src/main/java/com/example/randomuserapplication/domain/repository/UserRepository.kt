@@ -1,6 +1,5 @@
 package com.example.randomuserapplication.domain.repository
 
-import com.example.randomuserapplication.domain.model.User
 import com.example.randomuserapplication.domain.model.UserResponse
 
 

@@ -11,6 +11,7 @@ import com.example.randomuserapplication.R
 import com.example.randomuserapplication.extensions.convertDpToPx
 import com.example.randomuserapplication.utils.RoundedCornersTransformation
 
+
 @BindingAdapter(
     "bind:imageUrl",
     "bind:cornerSize",
@@ -21,11 +22,10 @@ fun ImageView.imageFromUrl(
     cornerSize: Int?
 ) {
     if (cornerSize != null) {
-        loadRoundedImageView(
+        imageCircle(
             this,
             imageUrl,
             cornerSize,
-            RoundedCornersTransformation.CornerType.ALL
         )
     } else {
         loadImageView(this, imageUrl)
@@ -61,4 +61,22 @@ fun loadRoundedImageView(
         )
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(imageView)
+}
+
+fun imageCircle(imageView: ImageView,
+                imageUrl: String?,
+                round: Int,) {
+    Glide.with(imageView.context)
+        .load(imageUrl)
+        .placeholder(R.drawable.placeholder)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .apply(RequestOptions.circleCropTransform())
+//        .transform(
+//            CenterCrop(), RoundedCornersTransformation(
+//                round.convertDpToPx(imageView.resources.displayMetrics).toFloat(),
+//                0f, RoundedCornersTransformation.CornerType.ALL
+//            )
+//        )
+        .into(imageView);
+
 }
