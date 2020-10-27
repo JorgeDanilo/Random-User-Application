@@ -2,8 +2,8 @@ package com.example.randomuserapplication.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Dob (
+data class Street (
 
-	@SerializedName("date") val date : String,
-	@SerializedName("age") val age : String
+	@SerializedName("number") val number : Int,
+	@SerializedName("name") val name : String
 )

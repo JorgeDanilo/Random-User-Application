@@ -23,8 +23,7 @@
            android:background="@android:color/transparent"
            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
            tools:itemCount="10"
-           tools:listitem="@layout/list_users_item"
-           />
+           tools:listitem="@layout/list_users_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,15 +1,13 @@
 package com.example.randomuserapplication.domain.model
 
-data class User(
-    val gender: String,
-    val name: Name,
-    val location: Location,
-    val email: String,
-    val dbo: Dob,
-    val phone: String,
-    val picture: Picture
-)
+import com.google.gson.annotations.SerializedName
 
-data class Name(val title: String,
-                val first: String,
-                val last: String)
+data class User (
+	@SerializedName("gender") val gender : String,
+	@SerializedName("name") val name : Name,
+	@SerializedName("location") val location : Location,
+	@SerializedName("email") val email : String,
+	@SerializedName("dob") val dob : Dob,
+	@SerializedName("phone") val phone : String,
+	@SerializedName("picture") val picture : Picture
+)

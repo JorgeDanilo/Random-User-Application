@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.randomuserapplication.domain.model.User
+import com.example.randomuserapplication.domain.model.UserResponse
 import com.example.randomuserapplication.domain.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
@@ -18,13 +19,13 @@ class MainUsersViewModel(
 
     private val viewModelScope = CoroutineScope(context = Main + viewModelJob)
 
-    private val _users: MutableLiveData<List<User>> = MutableLiveData()
+    private val _users: MutableLiveData<UserResponse> = MutableLiveData()
 
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
 
     private val _error: MutableLiveData<Throwable> = MutableLiveData()
 
-    val users: LiveData<List<User>> get() = _users
+    val users: LiveData<UserResponse> get() = _users
 
     val loading: LiveData<Boolean> get() = _loading
 
@@ -37,7 +38,7 @@ class MainUsersViewModel(
                 _users.value = repository.getAll()
                 _loading.value = false
             } catch (t: Throwable) {
-                _users.value = emptyList()
+//                _users.value = emptyList()
                 _error.value = t
             } finally {
                 _loading.value = false

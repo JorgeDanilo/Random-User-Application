@@ -1,9 +1,10 @@
 package com.example.randomuserapplication.domain.repository
 
 import com.example.randomuserapplication.domain.model.User
-import kotlinx.coroutines.Deferred
+import com.example.randomuserapplication.domain.model.UserResponse
+
 
 interface UserRepository {
 
-    suspend fun getAll(): List<User>
+    suspend fun getAll(): UserResponse
 }
