@@ -3,6 +3,7 @@ package com.example.randomuserapplication.app.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.ScriptGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -12,7 +13,7 @@ import com.example.randomuserapplication.R
 import com.example.randomuserapplication.databinding.ActivityMainBinding as Binding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
 //    private var binding: ActivityMainBinding? = null
     private val viewModel by viewModel<MainUsersViewModel>()
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hideActionBar()
         configureView()
         observerUsers()
         observerError()
@@ -43,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.users.observe(this,
             Observer { data ->
                 binding?.recyclerView?.adapter = ListUsersAdapter(data.results, this)
-                binding?.recyclerView?.setItemViewCacheSize(20)
             }
         )
     }
