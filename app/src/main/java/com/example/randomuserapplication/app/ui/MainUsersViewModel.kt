@@ -16,19 +16,12 @@ class MainUsersViewModel(
 ) : ViewModel() {
 
     private val viewModelJob = SupervisorJob()
-
     private val viewModelScope = CoroutineScope(context = Main + viewModelJob)
-
     private val _users: MutableLiveData<UserResponse> = MutableLiveData()
-
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
-
     private val _error: MutableLiveData<Throwable> = MutableLiveData()
-
     val users: LiveData<UserResponse> get() = _users
-
     val loading: LiveData<Boolean> get() = _loading
-
     val error: LiveData<Throwable> get() = _error
 
     fun getAll() {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardElevation="1dp"
+    tools:context=".app.ui.PopupActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/testrecty"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="8dp"
+                android:text="Hii ho are you ?"
+                android:layout_gravity="end"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_marginTop="-4.5dp"
+                android:layout_marginRight="4.5dp"
+                android:layout_width="8dp"
+                android:layout_height="16dp"
+                android:layout_gravity="end"
+                android:rotation="90"
+                android:background="@drawable/testcornery"
+                android:contentDescription="image view" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
